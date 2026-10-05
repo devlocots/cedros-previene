@@ -1,0 +1,3 @@
+Copie aquí el archivo diabetes.csv (Pima Indians Diabetes Dataset, 768 filas).
+Sirve el formato de Kaggle (con encabezados Pregnancies, Glucose, ..., Outcome)
+o el formato UCI sin encabezados (9 columnas en el mismo orden).

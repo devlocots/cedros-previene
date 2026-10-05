@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.angular/
+.env
+.venv/
+__pycache__/
+ml-service/artefactos/*.joblib
+ml-service/data/*.csv
+frontend/src-anterior/
+frontend/frontend-src-v2/
+*.zip

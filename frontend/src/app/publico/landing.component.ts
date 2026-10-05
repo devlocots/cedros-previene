@@ -32,16 +32,19 @@ import { SiteHeaderComponent } from '../shared/site-header.component';
           </div>
 
           <div class="hero-visual rise d2" aria-hidden="true">
+            <figure class="hero-photo">
+              <img src="hero-ilustracion.svg" alt="" width="360" height="440" />
+            </figure>
             <div class="preview">
-              <div class="preview-head"><span class="eyebrow">Ejemplo de resultado</span><span class="level Moderado">Riesgo moderado</span></div>
-              <app-gauge [valor]="0.186" nivel="Moderado" [size]="190" caption="probabilidad" />
+              <div class="preview-head"><span class="eyebrow">Ejemplo de resultado</span><span class="level Moderado">Moderado</span></div>
+              <app-gauge [valor]="0.186" nivel="Moderado" [size]="132" caption="riesgo" />
               <div class="preview-rows">
                 <div><span>IMC</span><span class="mini"><i style="width:82%" class="up"></i></span></div>
                 <div><span>Edad</span><span class="mini"><i style="width:58%" class="up"></i></span></div>
                 <div><span>Actividad</span><span class="mini"><i style="width:34%" class="down"></i></span></div>
               </div>
             </div>
-            <div class="float-chip c1"><app-icon name="activity" [size]="16" /> Random Forest</div>
+            <div class="float-chip c1"><app-icon name="heart" [size]="16" /> Hecho para Los Cedros</div>
             <div class="float-chip c2"><app-icon name="lock" [size]="16" /> Datos anónimos</div>
           </div>
         </div>

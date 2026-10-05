@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 440" role="img" aria-label="Ilustración: vecinos de Los Cedros de Villa caminando juntos al atardecer">
+  <defs>
+    <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE3D6"/>
+      <stop offset="0.55" stop-color="#FBF1E6"/>
+      <stop offset="1" stop-color="#E4F3EC"/>
+    </linearGradient>
+    <linearGradient id="colina" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#BFE6D6"/>
+      <stop offset="1" stop-color="#9FD3C1"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="440" fill="url(#cielo)"/>
+  <!-- sol -->
+  <circle cx="250" cy="128" r="74" fill="#FFB199" opacity=".55"/>
+  <circle cx="250" cy="128" r="50" fill="#FF7A59" opacity=".85"/>
+  <!-- nubes suaves -->
+  <path d="M40 92c10-18 38-18 46-2 14-6 30 4 28 18H34c-6-8-2-16 6-16Z" fill="#fff" opacity=".8"/>
+  <path d="M286 222c8-12 26-12 32 0 10-4 22 3 20 12h-58c-4-6-1-12 6-12Z" fill="#fff" opacity=".7"/>
+  <!-- colinas -->
+  <path d="M0 330c60-40 120-46 190-24s120 18 170-6v140H0Z" fill="#CFEBDF"/>
+  <path d="M0 360c70-30 140-30 210-10s110 16 150 2v88H0Z" fill="url(#colina)"/>
+  <!-- cedros -->
+  <g fill="#0F4C5C">
+    <path d="M50 262l22 34h-12l18 28H32l18-28H38z"/>
+    <rect x="47" y="324" width="6" height="16"/>
+    <path d="M318 280l16 25h-9l13 20h-40l13-20h-9z" opacity=".75"/>
+    <rect x="315" y="325" width="5" height="12" opacity=".75"/>
+  </g>
+  <!-- camino -->
+  <path d="M120 440c20-40 70-62 150-70" stroke="#F6E7D3" stroke-width="22" fill="none" stroke-linecap="round" opacity=".9"/>
+  <!-- persona 1: adulto mayor con bastón -->
+  <g>
+    <circle cx="118" cy="252" r="19" fill="#E8B04B"/>
+    <path d="M96 290c0-10 10-18 22-18s22 8 22 18v72H96Z" fill="#E8B04B"/>
+    <path d="M98 362h16v22h-16zM122 362h16v22h-16z" fill="#C98F2E"/>
+    <path d="M86 300v84" stroke="#0F4C5C" stroke-width="4" stroke-linecap="round"/>
+    <path d="M86 300c0-6 4-9 10-9" stroke="#0F4C5C" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- persona 2: adulta -->
+  <g>
+    <circle cx="186" cy="222" r="22" fill="#0F4C5C"/>
+    <path d="M160 266c0-12 12-21 26-21s26 9 26 21v96h-52Z" fill="#0F4C5C"/>
+    <path d="M163 362h20v24h-20zM190 362h20v24h-20z" fill="#0A3742"/>
+    <path d="M160 300l-22 6" stroke="#0F4C5C" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <!-- persona 3: adulto joven -->
+  <g>
+    <circle cx="254" cy="238" r="20" fill="#FF7A59"/>
+    <path d="M231 280c0-11 10-19 23-19s23 8 23 19v82h-46Z" fill="#FF7A59"/>
+    <path d="M233 362h18v24h-18zM257 362h18v24h-18z" fill="#E0613F"/>
+    <path d="M212 300l20 4" stroke="#FF7A59" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <!-- corazón -->
+  <path transform="translate(-92 22)" d="M220 180s-14-8-17-17c-2-6 2-12 8-12 4 0 7 2 9 6 2-4 5-6 9-6 6 0 10 6 8 12-3 9-17 17-17 17Z" fill="#FF7A59"/>
+  <!-- gota -->
+  <path transform="translate(150 20)" d="M150 170s-9 10-9 16a9 9 0 0 0 18 0c0-6-9-16-9-16Z" fill="#0F4C5C" opacity=".85"/>
+</svg>

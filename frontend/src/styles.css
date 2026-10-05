@@ -523,3 +523,149 @@ td.empty { text-align: center; padding: 36px; color: var(--muted); }
   .res-hero, .res-card, .card { box-shadow: none !important; break-inside: avoid; }
   .g-arc, .rise, .div-track i { animation: none !important; }
 }
+
+
+/* =====================================================================
+   TEMA CÁLIDO · identidad "Salud cálida y humana"
+   Petróleo + coral + menta + marfil. Se agrega al FINAL de styles.css
+   y reemplaza los colores anteriores sin tocar la estructura.
+   ===================================================================== */
+:root {
+  --bg: #FBF8F3;
+  --surface: #FFFFFF;
+  --surface-2: #F7F1E8;
+  --sunken: #F0E9DE;
+  --ink: #12303A;
+  --muted: #5F6C70;
+  --line: #E7DFD3;
+  --brand: #0F4C5C;
+  --brand-2: #0A3742;
+  --brand-ink: #FFFFFF;
+  --brand-soft: #DDEDEC;
+  --accent: #FF7A59;
+  --accent-soft: #FFE4DA;
+  --mint: #BFE6D6;
+  --glow: rgba(255, 122, 89, .22);
+  --low: #2E8A66; --low-soft: #DFF2E8;
+  --mid: #C97D10; --mid-soft: #FCEFD7;
+  --high: #D2412F; --high-soft: #FCE3DE;
+  --shadow: 0 1px 2px rgba(60, 40, 20, .06), 0 12px 30px -16px rgba(60, 40, 20, .22);
+  --shadow-lg: 0 30px 70px -32px rgba(15, 76, 92, .45);
+  --f-display: "Sora", "Segoe UI", system-ui, sans-serif;
+}
+:root[data-theme="dark"] {
+  --bg: #0A1B20;
+  --surface: #10262C;
+  --surface-2: #132D34;
+  --sunken: #17353D;
+  --ink: #F4EFE7;
+  --muted: #A7B6B8;
+  --line: #24444C;
+  --brand: #7CC7CF;
+  --brand-2: #4FA9B4;
+  --brand-ink: #06222A;
+  --brand-soft: #143C45;
+  --accent: #FF8E70;
+  --accent-soft: #3B2219;
+  --mint: #2C5A50;
+  --glow: rgba(255, 142, 112, .2);
+  --low: #5ED39A; --low-soft: #12302A;
+  --mid: #F2B54A; --mid-soft: #362810;
+  --high: #FF7B6B; --high-soft: #3B1C19;
+}
+
+/* Tipografía: Sora en títulos, con un poco menos de compresión */
+h1, h2, h3 { letter-spacing: -.025em; }
+.hero h1 { font-weight: 700; }
+.hl { background: none; -webkit-background-clip: initial; background-clip: initial; color: var(--accent); position: relative; white-space: nowrap; }
+.hl::after { content: ""; position: absolute; left: 0; right: 0; bottom: .06em; height: .16em; border-radius: 99px; background: var(--accent); opacity: .25; }
+
+/* Logo */
+.logo-mark { width: 40px; height: 40px; border-radius: 13px; background: var(--accent-soft); box-shadow: none; }
+.lm-heart { fill: none; stroke: var(--brand); stroke-width: 2.4; stroke-linejoin: round; }
+.lm-drop { fill: var(--accent); }
+.logo-text { font-weight: 600; }
+.logo-text b { color: var(--accent); font-weight: 700; }
+.on-dark .logo-mark { background: rgba(255, 255, 255, .14); }
+.on-dark .lm-heart { stroke: #FFFFFF; }
+
+/* Botones: primario petróleo, acento coral en hover */
+.btn { border-radius: 999px; box-shadow: 0 10px 22px -12px var(--brand); }
+.btn.small { border-radius: 999px; }
+.btn:hover { filter: none; background: var(--brand-2); }
+.btn.ghost:hover { background: var(--sunken); }
+.btn.inverse { background: #FFFFFF; color: #0F4C5C; }
+.btn.inverse:hover { background: #FFE4DA; }
+.pill { color: var(--brand); border-color: var(--line); }
+.pill .icon { color: var(--accent); }
+
+/* Portada */
+.hero { padding-block: 56px 110px; }
+.hero-bg { background:
+  radial-gradient(520px 360px at 92% 8%, var(--glow), transparent 70%),
+  radial-gradient(560px 420px at 0% 100%, color-mix(in srgb, var(--mint) 55%, transparent), transparent 70%); }
+.hero-bg::after { content: ""; position: absolute; right: -120px; top: 40px; width: 520px; height: 520px; border-radius: 46% 54% 60% 40% / 50% 42% 58% 50%; background: color-mix(in srgb, var(--mint) 45%, transparent); filter: blur(2px); }
+.trust .icon { color: var(--accent); }
+.hero-visual { min-height: 460px; align-items: flex-start; }
+.hero-photo { position: relative; margin: 0; width: min(100%, 360px); aspect-ratio: 360 / 440; border-radius: 200px 200px 32px 32px; overflow: hidden; margin-left: auto; box-shadow: var(--shadow-lg); outline: 10px solid var(--surface); }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.preview { position: absolute; left: -12px; bottom: -56px; max-width: 220px; padding: 14px; gap: 8px; border-radius: 22px; }
+.preview .gauge .g-num { font-size: 1.7rem; }
+.preview-rows div { grid-template-columns: 4.6rem 1fr; font-size: .8rem; }
+.float-chip { color: var(--brand); }
+.float-chip .icon { color: var(--accent); }
+.float-chip.c1 { top: 18px; left: 8%; bottom: auto; right: auto; }
+.float-chip.c2 { top: auto; bottom: -18px; right: 28px; left: auto; }
+
+/* Franja de cifras y llamado final */
+.band { background: linear-gradient(120deg, #0F4C5C, #0A3742); }
+.stat { border-left-color: #FF7A59; }
+.stat b { color: #FFFFFF; }
+.cta-band { background:
+  radial-gradient(420px 220px at 95% 10%, rgba(255, 122, 89, .55), transparent 70%),
+  linear-gradient(120deg, #0A3742, #0F4C5C 60%, #13606F); }
+
+/* Secciones */
+.section.alt { background: var(--surface-2); }
+.steps3 li > .icon, .fico { color: var(--accent); }
+.fico { background: var(--accent-soft); }
+.fcard:nth-child(even) .fico { background: var(--brand-soft); color: var(--brand); }
+.step-n { color: var(--accent-soft); }
+.faq summary::after { color: var(--accent); }
+
+/* Test paso a paso */
+.test-shell { background:
+  radial-gradient(640px 380px at 100% 0%, var(--glow), transparent 70%),
+  radial-gradient(520px 380px at 0% 100%, color-mix(in srgb, var(--mint) 45%, transparent), transparent 70%), var(--bg); }
+.qico { background: var(--accent-soft); color: var(--accent); box-shadow: none; }
+.st.done i { background: var(--brand); }
+.st.now i { background: var(--accent); box-shadow: 0 0 12px var(--glow); }
+.st.now small { color: var(--accent); }
+.opt[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 4px var(--glow); }
+.opt[aria-pressed="true"] .opt-ico, .opt[aria-pressed="true"] .opt-check { background: var(--accent); border-color: var(--accent); color: #FFFFFF; }
+.consent.on { border-color: var(--accent); background: var(--accent-soft); }
+.round:hover { background: var(--accent-soft); color: var(--accent); }
+.bignum input:focus { border-color: var(--accent); }
+.loader i:nth-child(3) { background: var(--accent); }
+
+/* Login */
+.auth-side { background: linear-gradient(160deg, #0A3742, #0F4C5C 60%, #146374); }
+.auth-side-bg { background:
+  radial-gradient(360px 280px at 90% 8%, rgba(255, 122, 89, .45), transparent 70%),
+  radial-gradient(420px 320px at 0% 100%, rgba(191, 230, 214, .22), transparent 70%); }
+.auth-side::after { content: ""; position: absolute; right: 24px; bottom: 60px; width: 220px; height: 270px; border-radius: 120px 120px 24px 24px; background: url("/hero-ilustracion.svg") center / cover no-repeat; opacity: .9; box-shadow: 0 20px 50px -20px rgba(0, 0, 0, .5); }
+
+/* Panel */
+.side-nav a.active { background: var(--accent-soft); color: var(--brand); box-shadow: inset 3px 0 0 var(--accent); }
+.avatar { background: var(--accent); }
+.kpi:not([class*="tone-"]) { --tone: var(--accent); }
+.vbar-col i { background: linear-gradient(180deg, var(--accent), var(--brand)); }
+.sb-track.alt i { background: var(--accent); }
+td.strong { color: var(--brand); }
+
+@media (max-width: 900px) {
+  .hero-visual { flex-direction: column; align-items: center; min-height: 0; }
+  .hero-photo { margin: 0 auto; }
+  .preview { position: static; margin: -70px auto 0; }
+  .auth-side::after { display: none; }
+}

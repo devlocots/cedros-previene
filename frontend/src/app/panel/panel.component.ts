@@ -17,11 +17,20 @@ import { ThemeToggleComponent } from '../shared/theme-toggle.component';
         <nav class="side-nav">
           <span class="side-label">Principal</span>
           <a routerLink="inicio" routerLinkActive="active"><app-icon name="home" [size]="18" /> Inicio</a>
-          <a routerLink="nueva" routerLinkActive="active"><app-icon name="plus" [size]="18" /> Nueva evaluación</a>
+          @if (!auth.esJefatura()) {
+            <a routerLink="nueva" routerLinkActive="active"><app-icon name="plus" [size]="18" /> Nueva evaluación</a>
+          }
           <a routerLink="historial" routerLinkActive="active"><app-icon name="list" [size]="18" /> Historial</a>
+          <a routerLink="reportes" routerLinkActive="active"><app-icon name="file" [size]="18" /> Reportes PDF</a>
+          <a routerLink="encuesta" routerLinkActive="active"><app-icon name="shield" [size]="18" /> Encuesta ISO 25010</a>
+
+          @if (auth.esAdmin()) {
+            <span class="side-label">Administración</span>
+            <a routerLink="usuarios" routerLinkActive="active"><app-icon name="users" [size]="18" /> Gestión de Usuarios</a>
+          }
+
           <span class="side-label">Próximamente</span>
           <span class="disabled"><app-icon name="layers" [size]="18" /> Evaluación por lote <em>S3</em></span>
-          <span class="disabled"><app-icon name="file" [size]="18" /> Reportes PDF <em>S2</em></span>
         </nav>
         <div class="side-user">
           <span class="avatar">{{ iniciales() }}</span>

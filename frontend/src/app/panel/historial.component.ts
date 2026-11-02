@@ -50,7 +50,7 @@ import { IconComponent } from '../shared/icon.component';
     <div class="tablewrap">
       <table>
         <thead>
-          <tr><th>Código</th><th>Fecha y hora</th><th>Canal</th><th>Sexo</th><th>Edad</th><th>IMC</th><th>Glucosa</th><th>Probabilidad</th><th>Nivel</th><th>Registró</th></tr>
+          <tr><th>Código</th><th>Fecha y hora</th><th>Canal</th><th>Sexo</th><th>Edad</th><th>IMC</th><th>Glucosa</th><th>Probabilidad</th><th>Nivel</th><th>Registró</th><th class="tr">Acciones</th></tr>
         </thead>
         <tbody>
           @for (f of filtradas(); track f.idEvaluacion) {
@@ -68,10 +68,18 @@ import { IconComponent } from '../shared/icon.component';
               </td>
               <td><span [class]="'level small ' + f.nivel">{{ f.nivel }}</span></td>
               <td>{{ f.registradoPor }}</td>
+              <td class="tr" style="white-space: nowrap;">
+                <a [routerLink]="['../reportes']" [queryParams]="{ id: f.idEvaluacion }" class="btn ghost small" title="Ver informe clínico y PDF">
+                  <app-icon name="file" [size]="14" /> Reporte
+                </a>
+                <a [routerLink]="['../encuesta']" [queryParams]="{ id: f.idEvaluacion }" class="btn ghost small" title="Calificar calidad ISO 25010">
+                  <app-icon name="shield" [size]="14" /> Encuesta
+                </a>
+              </td>
             </tr>
           } @empty {
             <tr>
-              <td colspan="10" class="empty">
+              <td colspan="11" class="empty">
                 @if (cargando()) {
                   Cargando…
                 } @else {

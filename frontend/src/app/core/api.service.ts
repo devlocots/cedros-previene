@@ -1,7 +1,19 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { FilaHistorial, ResultadoEvaluacion, Resumen, Usuario } from './models';
+import {
+  DimensionCatalogo,
+  EntradaBitacora,
+  FilaHistorial,
+  ReporteClinico,
+  RespuestaItem,
+  ResultadoEvaluacion,
+  Resumen,
+  ResumenEncuesta,
+  Rol,
+  Usuario,
+  UsuarioAdmin,
+} from './models';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
@@ -10,6 +22,10 @@ export class ApiService {
 
   login(correo: string, password: string) {
     return this.http.post<{ token: string; usuario: Usuario }>(`${this.url}/auth/login`, { correo, password });
+  }
+
+  logout() {
+    return this.http.post<{ ok: boolean }>(`${this.url}/auth/logout`, {});
   }
 
   evaluarPublica(datos: Record<string, unknown>) {
@@ -28,6 +44,54 @@ export class ApiService {
 
   resumen() {
     return this.http.get<Resumen>(`${this.url}/evaluaciones/resumen`);
+  }
+
+  obtenerCatalogoEncuesta() {
+    return this.http.get<DimensionCatalogo[]>(`${this.url}/encuesta/catalogo`);
+  }
+
+  guardarEncuesta(idEvaluacion: number, respuestas: RespuestaItem[]) {
+    return this.http.post<{ guardado: boolean; idEvaluacion: number; totalRespuestas: number }>(
+      `${this.url}/encuesta`,
+      { idEvaluacion, respuestas },
+    );
+  }
+
+  resumenEncuesta() {
+    return this.http.get<ResumenEncuesta>(`${this.url}/encuesta/resumen`);
+  }
+
+  obtenerEncuestaPorEvaluacion(idEvaluacion: number) {
+    return this.http.get<any[]>(`${this.url}/encuesta/evaluacion/${idEvaluacion}`);
+  }
+
+  // Reportes clínicos (HU11 auditoría de descarga)
+  obtenerReporteClinico(idEvaluacion: number) {
+    return this.http.get<ReporteClinico>(`${this.url}/reportes/evaluacion/${idEvaluacion}`);
+  }
+
+  // Administración de usuarios y auditoría (Rol Admin)
+  listarRolesAdmin() {
+    return this.http.get<Rol[]>(`${this.url}/admin/roles`);
+  }
+
+  listarUsuariosAdmin() {
+    return this.http.get<UsuarioAdmin[]>(`${this.url}/admin/usuarios`);
+  }
+
+  crearUsuarioAdmin(datos: { nombres: string; correo: string; password: string; idRol: number }) {
+    return this.http.post<{ creado: boolean; idUsuario: number }>(`${this.url}/admin/usuarios`, datos);
+  }
+
+  toggleActivoUsuario(idUsuario: number, activo: boolean) {
+    return this.http.patch<{ idUsuario: number; activo: boolean }>(`${this.url}/admin/usuarios/${idUsuario}/activo`, {
+      activo,
+    });
+  }
+
+  listarBitacoraAdmin(limite = 50) {
+    const params = new HttpParams().set('limite', limite);
+    return this.http.get<EntradaBitacora[]>(`${this.url}/admin/bitacora`, { params });
   }
 }
 

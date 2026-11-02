@@ -1,4 +1,4 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { ApiService } from './api.service';
@@ -12,6 +12,11 @@ export class AuthService {
   private readonly api = inject(ApiService);
   private readonly router = inject(Router);
   readonly usuario = signal<Usuario | null>(this.leerUsuario());
+
+  readonly esAdmin = computed(() => this.usuario()?.rol === 'Admin');
+  readonly esMedico = computed(() => this.usuario()?.rol === 'Médico');
+  readonly esJefatura = computed(() => this.usuario()?.rol === 'Jefatura');
+  readonly esTamizaje = computed(() => this.usuario()?.rol === 'Tamizaje');
 
   get token(): string | null {
     return localStorage.getItem(CLAVE_TOKEN);
@@ -32,10 +37,16 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem(CLAVE_TOKEN);
-    localStorage.removeItem(CLAVE_USUARIO);
-    this.usuario.set(null);
-    this.router.navigate(['/login']);
+    this.api.logout().subscribe({
+      next: () => {},
+      error: () => {},
+      complete: () => {
+        localStorage.removeItem(CLAVE_TOKEN);
+        localStorage.removeItem(CLAVE_USUARIO);
+        this.usuario.set(null);
+        this.router.navigate(['/login']);
+      },
+    });
   }
 
   private leerUsuario(): Usuario | null {

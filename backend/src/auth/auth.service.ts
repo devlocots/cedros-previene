@@ -49,4 +49,13 @@ export class AuthService {
       usuario: { id: usuario.id_usuario, nombres: usuario.nombres, correo: usuario.correo, rol: usuario.rol },
     };
   }
+
+  async logout(idUsuario: number, ip: string | null) {
+    await this.db.execute('INSERT INTO bitacora_acceso (id_usuario, accion, ip) VALUES (?, ?, ?)', [
+      idUsuario,
+      'LOGOUT',
+      ip,
+    ]);
+    return { ok: true };
+  }
 }

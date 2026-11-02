@@ -22,4 +22,12 @@ export class AuthController {
   perfil(@Req() req: any) {
     return req.user;
   }
+
+  @Post('logout')
+  @HttpCode(200)
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
+  logout(@Req() req: any, @Ip() ip: string) {
+    return this.auth.logout(req.user.sub, ip ?? null);
+  }
 }

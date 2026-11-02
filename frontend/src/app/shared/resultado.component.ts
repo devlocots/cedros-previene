@@ -1,5 +1,6 @@
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { Factor, ResultadoEvaluacion } from '../core/models';
 import { GaugeComponent } from './gauge.component';
 import { IconComponent } from './icon.component';
@@ -59,7 +60,7 @@ const FRASE: Record<string, string> = {
 /** Resultado de la estimación: anillo animado, factores, recomendaciones (HU04). */
 @Component({
   selector: 'app-resultado',
-  imports: [DatePipe, DecimalPipe, GaugeComponent, IconComponent],
+  imports: [DatePipe, DecimalPipe, RouterLink, GaugeComponent, IconComponent],
   template: `
     <article class="resultado" [class.compacto]="modoPersonal">
       <section [class]="'res-hero tone-' + r.nivel">
@@ -133,6 +134,11 @@ const FRASE: Record<string, string> = {
         </p>
         <div class="res-actions no-print">
           <button type="button" class="btn ghost" (click)="imprimir()"><app-icon name="print" [size]="18" /> Imprimir o guardar PDF</button>
+          @if (modoPersonal) {
+            <a [routerLink]="['/panel/encuesta']" [queryParams]="{ id: r.idEvaluacion }" class="btn ghost">
+              <app-icon name="shield" [size]="18" /> Calificar calidad ISO 25010
+            </a>
+          }
           @if (!modoPersonal) {
             <button type="button" class="btn" (click)="otro.emit()"><app-icon name="refresh" [size]="18" /> Hacer otro test</button>
           }

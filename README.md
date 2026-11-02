@@ -93,7 +93,16 @@ uvicorn app.main:app --port 8000
 
 Documentación del servicio: http://localhost:8000/docs
 
-## 6. Pruebas
+## 6. Pruebas Automatizadas (Evaluación T2 - Semana 10)
+
+```bash
+cd backend
+npm run test:all           # Ejecuta los 4 tipos de pruebas (Unitarias, Integración, Funcionales, Carga)
+npm run test:unit          # Pruebas Unitarias (Jest)
+npm run test:integracion   # Pruebas de Integración E2E (API + MariaDB)
+npm run test:funcional     # Pruebas Funcionales (Historias de Usuario)
+npm run test:carga         # Pruebas de Carga (50 usuarios concurrentes, RNF08)
+```
 
 ```bash
 cd backend && npm test          # validación de rangos (HU02), IMC y niveles de riesgo

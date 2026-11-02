@@ -9,3 +9,5 @@ ml-service/data/*.csv
 frontend/src-anterior/
 frontend/frontend-src-v2/
 *.zip
+*.rar
+
